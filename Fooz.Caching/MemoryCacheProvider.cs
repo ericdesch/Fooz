@@ -24,10 +24,10 @@ namespace Fooz.Caching
             Cache.Add(new CacheItem(key, data), policy);
         }
 
-        public void Set(string key, object data, int cacheTime)
+        public void Set(string key, object data, int cacheMinutes)
         {
             CacheItemPolicy policy = new CacheItemPolicy();
-            policy.AbsoluteExpiration = DateTime.Now + TimeSpan.FromMinutes(cacheTime);
+            policy.AbsoluteExpiration = DateTime.Now + TimeSpan.FromMinutes(cacheMinutes);
 
             Cache.Add(new CacheItem(key, data), policy);
         }
